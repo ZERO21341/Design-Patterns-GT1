@@ -38,6 +38,7 @@ int main() {
     NoDiscount noDisc;
     TenPercentDiscount tenDisc;
     TwentyPercentDiscount twentyDisc;
+    
 
     DiscountStrategy* strategies[] = { &noDisc, &tenDisc, &twentyDisc };
 
@@ -53,7 +54,9 @@ int main() {
        
         if (choice >= 1 && choice <= 3) {
             double discounted = strategies[choice - 1]->applyDiscount(price);
+            double amountDiscounted = price - discounted;
             cout << "Discounted Price: " << discounted << endl;
+            cout << "Amount Discounted: " << amountDiscounted << endl;
         } else {
             cout << "Invalid choice." << endl;
         }
